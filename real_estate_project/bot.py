@@ -31,7 +31,10 @@ def start(message):
 def predict(message):
     try:
         user_input = [list(map(float, message.text.split(',')))]
-        if len(user_input)!=13:
+        count = 0
+        for listElem in user_input:
+            count += len(listElem)
+        if count != 13:
             bot.reply_to(message, "Please provide exactly 13 values.")
             return
         
